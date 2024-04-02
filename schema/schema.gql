@@ -1,6 +1,13 @@
 directive @expose(source: [String]) on FIELD_DEFINITION
 
+type UserDetails {
+  id: Int
+  name: String
+  superSecretInternalInformation: String @expose(source: ["internal"])
+}
+
 type Query {
   add(x: Int, y: Int): Int @expose(source: ["internal"])
   externalAdd(x: Int, y: Int): Int @expose(source: ["external"])
+  user: UserDetails
 }

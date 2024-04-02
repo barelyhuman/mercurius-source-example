@@ -19,7 +19,7 @@ async function run() {
 
   const app = Fastify();
   app.register(mercurius, {
-    schema: exposeTransformer(await prepareSchema(resolvers), "internal"),
+    schema: exposeTransformer(await prepareSchema(resolvers), "external"),
     routes: true,
     graphiql: true,
   });
